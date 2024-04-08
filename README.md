@@ -22,3 +22,9 @@ where last line is the number of 4-connected pixels.
 - add tests
 - run memory, thread sanitizers
 - check popular compilers/environments: clang, gcc, mingw, msys, linux
+# Concurrent floodfill
+1. calculate floodfill on the chunk where (x, y) belong, mark chunk as processed
+2. deduce edges for upper, lower, left and right sides, each of them form a set of points (T, B, L, R), filter non-empty ones
+3. spawn new tasks for each non-empty edge
+4. for-each pixel on the edge, run floodfill on the left, right, top, bottom chunks touching previously processed
+5. repeat from 2
