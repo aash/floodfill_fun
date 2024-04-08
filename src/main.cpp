@@ -145,12 +145,9 @@ public:
                 throw std::out_of_range("invalid copy rect specified");
             }
         }
+
         auto c = std::make_unique<image_2d<T>>(w + 2*pad, h + 2*pad);
-        
-        // auto rng = std::views::iota(0, h);
-
-
-        for (int y = 0; y < h; y++) {
+        for (auto y : std::views::iota(0U, h)){
             auto line_begin = buffer.begin() + (y0 + y) * width + x0;
             auto line_end = line_begin + w;
             auto out_line_begin = c->buffer.begin() + (y + pad) * (w + 2*pad) + pad;
@@ -230,7 +227,6 @@ std::string type_names() {
 int main(int argc, char **argv) {
 
     #ifndef EXPERIMENTS
-
     try {
         auto [bound, width, height, px, py] = parse_arguments<int, int, int, int, int>(argc, argv);
         std::cout << "bound: " << bound << "\n";
