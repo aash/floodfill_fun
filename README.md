@@ -1,4 +1,4 @@
-# Build
+# Build with msvc (other compilers aren't tested)
 ```
 $ git clone https://github.com/aash/floodfill_fun
 $ cd floodfill_fun
