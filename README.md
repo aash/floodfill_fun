@@ -16,3 +16,9 @@ py: 1000
 number of connected pixels: 148848
 ```
 where last line is the number of 4-connected pixels.number of connected pixels: 148848
+# Improvements
+- add map reduce concurrency pattern for floodfill, core of the problem is reduction, research needed
+- implement scan-line floodfill algorithm
+- add tests
+- run memory, thread sanitizers
+- check popular compilers/environments: clang, gcc, mingw, msys, linux
